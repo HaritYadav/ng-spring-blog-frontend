@@ -1,0 +1,36 @@
+<div class="container justify-content-center">
+    <form class="form-signin" [formGroup]="registerForm" (ngSubmit) = "onSubmit()">  
+        <h1 class="h3 mb-3 form-weight-normal">Please Register</h1>
+        <div class="mb-3 form-group">
+            <label for="inputUsername" class="visually-hidden">Username</label>
+            <input type="text" id="inputUsername" 
+                class="form-control" placeholder="Username" 
+                required="" autofocus=""
+                [formControlName]="'username'">
+        </div>
+        <div class="mb-3 form-group">
+            <label for="inputEmail" class="visually-hidden">Email</label>
+            <input type="text" id="inputEmail" 
+                class="form-control" placeholder="Email" 
+                required="" autofocus=""
+                [formControlName]="'email'">
+        </div>
+        <div class="mb-3 form-group">
+            <label for="inputPassword" class="visually-hidden">Password</label>
+            <input type="password" id="inputPassword" 
+                class="form-control" placeholder="Password" 
+                required="" autofocus=""
+                [formControlName]="'password'">
+        </div>
+        <div class="mb-3 form-group">
+            <label for="inputConfirmPassword" class="visually-hidden">Confirm Password</label>
+            <input type="password" id="inputConfirmPassword" 
+                class="form-control" placeholder="Confirm Password" 
+                required="" autofocus=""
+                [formControlName]="'confirmPassword'">
+        </div>
+        <div class="d-grid gap-2">
+            <button class="btn btn-primary" type="submit">Sign Up</button>
+          </div>
+    </form>
+</div>
