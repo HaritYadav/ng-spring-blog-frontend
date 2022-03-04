@@ -1,1 +1,20 @@
-<p>login works!</p>
+<div class="container justify-content-center">
+    <form class="form-signin" [formGroup]="loginForm" (ngSubmit)="onSubmit()">
+        <h1 class="h3 mb-3 form-weight-normal">Login</h1>
+        <div class="mb-3 form-group">
+            <label for="inputUsername" class="visually-hidden">Username</label>
+            <input id="inputUsername" [formControlName]="'username'"
+                class="form-control" placeholder="Username" type="text"
+                required="" autofocus="">
+        </div>
+        <div class="mb-3 form-group">
+            <label for="inputPassword" class="visually-hidden">Password</label>
+            <input id="inputPassword" [formControlName]="'password'"
+                class="form-control" placeholder="Password" type="text"
+                required="" autofocus="">
+        </div>
+        <div class="d-grid gap-2">
+            <button class="btn btn-primary" type="submit">Login</button>
+        </div>
+    </form>
+</div>

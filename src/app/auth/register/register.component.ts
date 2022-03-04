@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup } from '@angular/forms';
+import { Router } from '@angular/router';
 import { AuthService } from '../auth.service';
 import { RegisterPayload } from '../register-payload';
 
@@ -17,7 +18,9 @@ export class RegisterComponent implements OnInit {
   //and assign values one by one
 
 
-  constructor(private formBuilder: FormBuilder, private authService: AuthService) {
+  constructor(private formBuilder: FormBuilder, 
+    private authService: AuthService,
+    private router: Router) {
 
     this.registerForm = this.formBuilder.group({
       username:'',
@@ -45,9 +48,9 @@ export class RegisterComponent implements OnInit {
 
     this.authService.register(this.registerPayload).subscribe(
       data=>{
-        alert("Registration Successfull!!");
+        this.router.navigateByUrl("register-success");
       }, error=>{
-        alert("Error!!")
+        alert("Error!!");
       }
     )
 
