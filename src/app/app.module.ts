@@ -37,7 +37,7 @@ import { AuthGuard } from './services/auth.guard';
       {path: "login", component:LoginComponent},
       {path: "home", component:HomeComponent},
       {path: "add-post", component:AddPostComponent, canActivate: [AuthGuard]},
-      {path: "post/:id", component:PostComponent}
+      {path: "post/:id", component:PostComponent, canActivate: [AuthGuard]}
     ]),
     FormsModule,
     ReactiveFormsModule,
