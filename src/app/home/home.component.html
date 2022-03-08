@@ -1,0 +1,17 @@
+<div class="content">
+    <div class="container">
+        <div class="row" *ngFor="let post of posts | async">
+            <div>
+                <h3><a href="/post/{{post.id}}" class="blog-title">{{post.title}}</a></h3>
+                <div>
+                    <i class="fas fs-user"></i>Author: <p>{{post.username}}</p>
+                </div>
+                <p [innerHTML]="post.content"></p>
+                <div>
+                    <a class="read-more btn btn-primary" type="button" href="/post/{{post.id}}">Read More...</a>
+                </div>
+                <hr>
+            </div>
+        </div>
+    </div>
+</div>

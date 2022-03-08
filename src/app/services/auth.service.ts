@@ -1,10 +1,10 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
-import { LoginPayload } from './login-payload';
-import { RegisterPayload } from './register-payload';
 
 import { map } from 'rxjs/operators';
+import { LoginPayload } from '../dto/login-payload';
+import { RegisterPayload } from '../dto/register-payload';
 
 
 @Injectable({
@@ -22,10 +22,14 @@ export class AuthService {
 
   
   login(loginPayload: LoginPayload): Observable<boolean> {
-    return this.httpCLient.post(this.url + "/login", loginPayload).pipe(map(data=>{
+    return this.httpCLient.post(this.url + "/login", loginPayload, {responseType: "text"}).pipe(map(data=>{
       localStorage.setItem("authenticationToken", data.toString());
       localStorage.setItem("username", loginPayload.username);
       return true;
     }));
+  }
+
+  isAuthenticated(): Boolean{
+    return localStorage.getItem("username")!=null;
   }
 }
