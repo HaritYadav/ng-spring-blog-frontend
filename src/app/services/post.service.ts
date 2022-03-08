@@ -19,8 +19,7 @@ export class PostService {
   }
 
   getAllPosts(): Observable<Array<PostPayload>>{
-    return this.httpClient.get<Array<PostPayload>>(this.url + "/all", 
-      {headers: {"Authorization" : "Bearer " + localStorage.getItem("authenticationToken")}}
+    return this.httpClient.get<Array<PostPayload>>(this.url + "/all"
     );
   }
 
